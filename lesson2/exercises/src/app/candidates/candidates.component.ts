@@ -16,15 +16,26 @@ export class CandidatesComponent implements OnInit {
     {name: 'Champ', data: {age: 9, mass: '36 kg', sidekick: 'Carly'}, image: 'assets/images/Carly.png'}
   ];
 
+
   crew = [];
 
   constructor() { }
+//onClear function clears the candidate data when clicked
+dataClear : boolean = true;
+onClear(){
+  this.dataClear= false;
+  }
 
   ngOnInit() {
   }
 
   // Code the addToCrew function here:
 
+   addtoCrew(person: object){
+    if (!this.crew.includes(person)){
+this.crew.push(person);
+    }
+  }
 
   // BONUS: Code the changeMissionName function here:
 
