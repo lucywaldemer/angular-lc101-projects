@@ -1,9 +1,24 @@
-<div class="chores">
-    <h3>Chores</h3>
-    <ul>
-        <li *ngFor = 'let chore of chores'>{{chore}}</li>
-    </ul>
+<div class='chores' *ngIf = "chores.length < finishedChores.length; else moreChores">
+    <div class='chores' *ngIf = "chores.length=0 || finishedChores.length > 3; else doneChores">
+        <h3>Chores</h3>
+        <ul>
+            <li *ngFor = 'let chore of chores'>{{chore}}</li>
+        </ul>
 </div>
+</div>
+
+<ng-template #moreChores>
+    <div class="chores">
+        <p style="color: red" >Work harder!</p>
+    </div>
+</ng-template>
+
+<ng-template #doneChores>
+    <div class="chores">
+        <img src="https://media.istockphoto.com/id/1282050925/vector/target-icon-on-transparent-background.jpg?s=612x612&w=0&k=20&c=SOu9ubbgNIjroLgZE_yIUvKGiZlnyFR1B5swsLRUwL8=">
+    </div>
+</ng-template>
+
 <hr>
 <div class="doneChores">
     <h3>Done Chores</h3>
@@ -11,4 +26,3 @@
         <li *ngFor = 'let done of finishedChores'>{{done}}</li>
     </ul>
 </div>
-<hr>
